@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <meta charset="utf-8">
+     <title>MemoryGame in Angular JS</title>
+</head>
+<style>
+body{
+     box-sizing: border-box;
+}
+.grid{
+     float: left;
+     width: 24%;
+}
+.imgTile{
+     visibility: hidden;
+}
+.visibleTile{
+     visibility: visible;
+}
+.invisibleTile{
+     visibility: hidden;
+}
+</style>
+<script src="../angular.js"></script>
+<script src="memory.js"></script>
+<body ng-app="MemoryGame" ng-controller="MemoryGameController">
+     <div id="homePage">
+          <button ng-click="buildGrid(4,2)">4x2 Game</button>
+          <button ng-click="buildGrid(6,3)">6x3 Game</button>
+          <button ng-click="buildGrid(8,4)">8x4 Game</button>
+     </div>
+     <div class="grid" ng-click="flipTile(tile)"  ng-repeat="tile in shuffledTile" style="border: 1px solid red">
+          <img class="imgTile" ng-src="images/{{tile.imgUrl}}" ng-class="tile.visible ? 'visibleTile' : ''">
+     </div>
+
+</body>
+</html>
